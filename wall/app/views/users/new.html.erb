@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <p><%=flash['errors']%></p>
+        <h1>SIGN IN</h1>
+        <form action='/users' method="post">
+             <input type = 'hidden' name = "authenticity_token" value = "<%=form_authenticity_token%>">
+            <input type="text" name="username">
+            <input type="submit" name="submit" value="Sign In">
+        </form>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+.box {
+    height: 180px;
+    width: 180px;
+    border: 1px solid black;
+    display: inline-block;
+    margin-right: 20px;
+    text-align: center;
+    padding-top: 20px;
+}
+.activitiesbox {
+    width: 880px;
+    height: 200px;
+    border: 1px solid black;
+    overflow: scroll;
+}
+.gold {
+    display: inline;
+    position: relative;
+    bottom: 37px;
+    left: 75px;
+}
+.earned{
+    color:green;
+}
+.lost{
+    color: red; 
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dojsecrets</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+      <body>
+  <% if flash[:newerrors] %>
+    <% flash[:newerrors].each do |e| %>
+      <%= e %>
+    <% end %>
+  <% end %>
+  <% if @user %>
+    <form action="/sessions/<%=@user.id%>" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="hidden" name="_method" value="delete">
+      <button type="submit" name = "Log Out" value="Log Out">Log Out</button>
+    </form>
+  <% end %>
+  <%= yield %>
+
+  </body>
+  </body>
+</html>

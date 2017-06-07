@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <h3>Are you sure you wish to delete your account?</h3>
+        <form action="/users/delete" method="post">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <input type="submit" name="answer" value="Yes">
+        </form>
+        <form action="/users/delete" method="post">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <input type="submit" name="answer" value="No">
+        </form>
+    </body>
+</html>

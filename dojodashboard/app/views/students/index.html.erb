@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+
+        <% if flash[:notice] %>
+    <h2><%= flash[:notice] %></h2>
+<% end %>
+        <h1><%=@dojo.branch%> Dojo</h1>
+        <h3>Address:<%=@dojo.street%></h3>
+        <h3>City: <%=@dojo.city%> State:<%=@dojo.state%></h3>
+
+
+            <table>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Actions</th>
+            <% @students.each do |x| %>
+                <tr>
+                    <td><%=x.fname%></td>
+                    <td><%=x.lname%></td>
+                    <td><%=x.email%></td>
+                    <td><a href='/dojos/<%=@dojo.id%>/students/<%=x.id%>'>Show</a>  <a href='/dojos/<%=@dojo.id%>/students/<%=x.id%>/edit'>/Edit</a>
+                        <a href = '/dojos/<%=@dojo.id%>/students/<%=x.id%>' data-method='DELETE'>Destroy</a>
+                </tr>
+                <%end%>
+            </table>
+<a href = '/'>Home</a>
+
+<a href = '/dojos/<%=@dojo.id%>/students/new'>Add Student</a>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+
+        <% if flash[:errors] %>
+
+        <p><%= flash[:errors] %></p>
+        <% end %>
+
+        <form action="create" method="post">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+        <p>Coding Dojo Branch</p><input type="text" name ='dojo[brach]'>
+        <p>Street</p><input type="text" name ='dojo[street]'>
+        <p>City</p><input type="text" name ='dojo[city]'>
+        <p>State</p><input type="text" name ='dojo[state]'>
+        <input type="submit" name="submit" value='Add Dojo'>
+
+        </form>
+
+        <a href='/'><p>Go Back</p></a>
+    </body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <% @users.each do |x|%>
+        <ul>
+        <li><a href='/users/<%=x.id%>'><%=x.name%></a></li>
+    </ul>
+        <%end%>
+<a href='/users/home' data-method ='get'>Home</a>
+    </body>
+</html>

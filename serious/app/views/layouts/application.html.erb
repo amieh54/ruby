@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Serious</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+      <%if session[:user_id]%>
+      <p><a href="/sessions/<%=session[:user_id]%>" data-method="delete">Logout</a>         
+<%end%>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!-- <h1>Products2#index</h1>
+<p>Find me in app/views/products2/index.html.erb</p> -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+    <h1>Products</h1>
+        <% @products.each do |product| %>
+        <p><%= product.name %></p>
+        <% end %>
+
+        <h2>Create a new product</h2>
+        <form action="/products2/" method="post">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<input type="text" name="name" placeholder="Product Name" /><br />
+<textarea name ='description' placeholder="Description"></textarea>
+<input type="submit" value="Create">
+
+        </form>
+    </body>
+</html>

@@ -1,0 +1,2 @@
+class Levent < ApplicationRecord
+end

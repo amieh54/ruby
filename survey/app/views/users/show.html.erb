@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+
+        <% if flash[:success] %>
+  		<div id="success">
+  			<p><%= flash[:success] %></p>
+		</div>
+	<% end %>
+    <h3>Submitted Information</h3>
+        <h4>Name:</h4><p><%=@result['name']%></p>
+        <h4>Location:</h4> <p><%=@result['location']%></p>
+        <h4>Favorite Language:</h4><p><%=@result['language']%></p>
+        <h4>Comment: </h4><p><%=@result['comment']%></p>
+    </body>
+</html>

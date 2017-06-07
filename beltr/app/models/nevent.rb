@@ -1,0 +1,2 @@
+class Nevent < ApplicationRecord
+end

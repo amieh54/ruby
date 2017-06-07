@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+
+        <% if flash[:notice] %>
+	<h2><%= flash[:notice] %></h2>
+<% end %>
+
+<h3>Listing <%=@count%> Dojos</h3>
+            <table>
+                <th>Coding Dojo Branch</th>
+                <th>Street</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Actions</th>
+<% @dojos.each do |x| %>
+                <tr>
+                    <td><%=x.branch%></td>
+                    <td><%=x.street%></td>
+                    <td><%=x.city%></td>
+                    <td><%=x.state%></td>
+                    <td><a href = '/dojos/<%=x.id%>'>Show</a>  <a href = '/dojos/<%=x.id%>/edit'>Edit</a>   <a href = '/dojos/<%=x.id%>' data-method='delete'>Destroy</a>   <a href = '/dojos/<%=x.id%>/students'>Students</a></td>
+<%end%>
+                </tr>
+            </table>
+<a href = 'dojos/new'><p>Add Dojo</p></a>   <a href = '/dojos/all'>See All Students</a>
+    </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <h2><%=@user.name%></h2>
+        <p><%=@user.email%></p>
+<% if @user.id == session[:user_id]%>
+        <ul>
+            <% @user.secrets.each do |x|%>
+            <li><%=x.content%></li>
+            <%end%>
+        </ul>
+
+        <form action="/users/<%=@user.id%>/edit" method="post">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <input type="hidden" name = "_method" value="get">
+            <input type = "submit" name = "edit" value = "Edit Profile">
+
+        </form>
+
+        <form action="/users/<%=@user.id%>" method="post">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <input type="hidden" name = "_method" value="delete">
+            <input type = "submit" name = "edit" value = "Delete User">
+
+        </form>
+        <a href = '/users/all' data-method = 'get'>View Users</a>
+        <%end%>
+        <a href='/users/home' data-method ='get'>Home</a>
+    </body>
+</html>

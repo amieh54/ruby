@@ -1,0 +1,10 @@
+Application Controller
+def current_user
+User.find(session:user_id) if session[:user_id]
+end
+def require_login
+if session user id
+
+
+
+User controller before_action :require_login

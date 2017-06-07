@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ninja Gold</title>
+    </head>
+    <body>
+        <p>Your Gold:</p><form><input class = "gold" type='text' name ='goldcount' value='<%=@goldcount %>'></form>
+
+
+        <div class="box">
+            <h3>Farm</h3>
+            <p>(earns 10-20 golds)</p>
+            <form class="farmbutton" action="/processgold" method="post">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <input type="hidden" name="location" value="farm">
+                <input type="submit" name="farmsubmit" value="Find Gold!">
+            </form>
+        </div>
+
+        <div class="box">
+            <h3>Cave</h3>
+            <p>(earns 5-10 golds)</p>
+            <form class="cavebutton" action="/processgold" method="post">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <input type="hidden" name="location" value="cave">
+                <input type="submit" name="cavesubmit" value="Find Gold!">
+            </form>
+        </div>
+
+        <div class="box">
+            <h3>House</h3>
+            <p>(earns 2-5 golds)</p>
+            <form class="housebutton" action="/processgold" method="post">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <input type="hidden" name="location" value="house">
+                <input type="submit" name="housesubmit" value="Find Gold!">
+            </form>
+        </div>
+
+        <div class="box">
+            <h3>Casino</h3>
+            <p>(earns/takes 0-50 golds)</p>
+            <form class="casinobutton" action="/processgold" method="post">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <input type="hidden" name="location" value="casino">
+                <input type="submit" name="casinosubmit" value="Find Gold!">
+            </form>
+        </div>
+
+        <p>Activities:</p>
+        <div class="activitiesbox">
+            <% @activities.reverse.each do |element| %>​
+				<% if element.include?("Earned") %>​
+					<p class="earned"><%= element %></p>​
+				<% else %>​
+					<p class="lost"><%= element %></p>​
+				<% end %>​
+			<% end %>​
+        </div>
+    </body>
+</html>

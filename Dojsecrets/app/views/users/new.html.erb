@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <h1>Register</h1>
+        <form action="/users/create" method="post">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <input type="text" name="user[name]" placeholder="Name">
+            <input type="text" name="user[email]" placeholder="Email">
+            <input type="password" name="user[password]" placeholder="Password">
+            <input type="password" name="user[password_confirmation]" placeholder="Password Confirmation">
+            <button type="submit" name="submit" value="Join">Join</button>
+
+
+        </form>
+        <h3>Already have an account?  <a href='/sessions/new' data-method = "get">Log In</a></h3>
+    </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <h3>Coding Dojo Wall</h3>              <h3>Welcome <%=@user.username%>!</h3>
+
+
+<% if flash[:success]%>
+<p><%= flash[:success]%></p>
+
+<%end%>
+
+<% if flash[:errors]%>
+<% flash[:errors].each do |x|%>
+<p><%=x%></p>
+<%end%>
+
+<%end%>
+    <form action= '/users/<%=@user.id%>/messages' method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <textarea name="content"></textarea>
+        <input type="submit" name="submit" value="Post a Message">
+    </form>
+
+
+<ul>
+    <%@messages.each do |x|%>
+    <p><%=x.user.username%> - <%=x.user.created_at.strftime("%b %d, %Y")%><p>
+        <li><%=x.content%></li>
+        <%@comments.each do |a|%>
+        <ul>
+                <%if x.id == a.message_id%>
+        <li><%=a.content%></li>
+                <%end%>
+        </ul>
+        <%end%>
+        <form action="/users/<%=@user.id%>/messages/<%=x.id%>" method="post">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <p>Make a Comment</p><textarea name="content"></textarea>
+            <input type="submit" value="Post Comment">
+        </form>
+    <%end%>
+    </ul>
+    </body>
+</html>

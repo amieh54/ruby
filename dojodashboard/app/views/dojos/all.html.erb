@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <table>
+
+    <th>Name</th>
+    <th>Email</th>
+    <th>Dojo</th>
+
+        <% @student.each do |x| %>
+        <tr>
+        <td><a href = '/dojos/<%=x.dojo_id%>/students/<%=x.id%>'><%=x.fname%>  <%=x.lname%></a></td>
+        <td><%=x.email%></td>
+        <td><a href = '/dojos/<%=x.dojo_id%>'><%=x.dojo.branch%></a></td>
+        </tr>
+        <%end%>
+            </table>
+
+            <a href = '/'>Home</a>      <a href = '/dojos/test'>Test</a>
+    </body>
+</html>

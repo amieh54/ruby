@@ -1,0 +1,14 @@
+rails g model Comment imageable:references{polymorphic}
+
+Comment.create(imageable: Blog.second)
+Comment.create(imageable: Message.third)
+Comment.create(imageable: User.first)
+Comment.create(imageable: Post.second)
+Comment.create(imageable: Blog.fourth)
+
+comments = User.third.comments 
+comment = comments.find(5)
+comment.update(imageable: Message.second) 
+
+comment2 = comments.find(4)
+comment2.delete  

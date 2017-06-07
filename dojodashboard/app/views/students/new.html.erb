@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+
+        <% if flash[:errors] %>
+
+        <p><%= flash[:errors] %></p>
+        <% end %>
+        <form action='/dojos/<%=@dojo.id%>/students' method="post">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <p>First Name:</p><input type="text" name="student[fname]">
+            <p>Last Name:</p><input type="text" name="student[lname]">
+            <p>Email:</p><input type="text" name="student[email]">
+            <label>Dojo:</label>
+            <select name="student[dojo_id]">
+                <% @dojos.each do |dojo| %>
+                    <% if dojo == @dojo %>
+                        <option selected value="<%= dojo.id %>"><%= dojo.branch %></option>
+                    <% else %>
+                        <option value="<%= dojo.id %>"><%= dojo.branch %></option>
+                    <% end %>
+                <% end %>
+            </select>
+            <input type="submit" value="Submit">
+        </form>
+<a href = '/'>Home</a> <a href = "/dojos/<%=@dojo.id%>"><%=@dojo.branch%></a>
+    </body>
+</html>

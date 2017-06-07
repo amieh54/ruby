@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <form action='/users' method="post">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <p>Your Name:</p><input type="text" name="user[name]">
+            <p>Dojo Location</p><select name = "user[location]">
+                    <option name = "location" value="Seattle">Seattle</option>
+                    <option name = "location" value="Washington, DC">Washington, DC</option>
+                    <option name = "location" value="New York">New York</option>
+                </select>
+            <p>Favorite Language</p><select name = "user[language]">
+                <option name = "language" value="Python">Python</option>
+                <option name = "language" value="Ruby">Ruby</option>
+                <option name = "language" value="MEAN">MEAN</option>
+                <option name = "language"value="JavaScript">JavaScript</option>
+            </select>
+            <p class='python'>Comment (optional):</p>
+            <br>
+            <textarea class = 'fix' name = "user[comment]"></textarea>
+            <input type="submit" name="submit" value="Submit">
+        </form>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <% if flash[:newerrors] %>
+          <% flash[:newerrors].each do |e| %>
+            <%= e %>
+          <% end %>
+        <% end %>
+        <% if @user %>
+          <form action="/sessions/<%=@user.id%>" method="post">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <input type="hidden" name="_method" value="delete">
+            <button type="submit" name = 'Log Out' value="Log Out">
+          </form>
+        <% end %>
+        <%= yield %>
+
+    </body>
+</html>

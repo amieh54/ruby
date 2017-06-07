@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <h1><%=@dojo.branch%> Dojo</h1>
+        <h3>Address:</h3><p><%=@dojo.street%></p>
+        <h3>City:</h3><p><%=@dojo.city%></p><h3>State:</h3><p><%=@dojo.state%></p>
+
+        <a href = '/'>Home</a> <a href = "/dojos/<%=@dojo.id%>/students/new">Add Student</a>
+    </body>
+</html>

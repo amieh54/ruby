@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+
+    <body>
+        <a href = "/users/<%=session[:user_id]%>">Events Dashboard</a></p>
+        <h4>Host:</h4><p><%=@event.user.first_name%> <%=@event.user.last_name%></h4> </p>
+        <h4>Name:</h4> <p><%=@event.name%></p>
+        <h4>Date:</h4>  <%=@date%></p>
+        <h4>Location:</h4>  <%=@event.city%>, <%=@event.state%></p>
+        <h4>People who are joining the event: <%=@event.users_joined.count%></h4>
+
+        <table>
+            <th>Name</th>
+            <th>Location</th>
+            <th>State</th>
+            <tr>
+
+
+            <%@event.users_joined.each do |x|%>
+            <td><%=x.first_name%> <%=x.last_name%></td>
+            <td><%=x.city%></td>
+            <td><%=x.state%></td>
+            </tr>
+            <%end%>
+
+        </table>
+
+<h2>Discussion about this event:</h2>
+<div class="discussion">
+<%@event.comments.each do |x|%>
+<ul>
+
+<li><h4><%=x.user.first_name%> says:</h4>
+    <%=x.content%></li>
+
+</ul>
+<%end%>
+</div>
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<form action="/comments/<%=@event.id%>/new" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <h3>Add Comment</h3>
+    <input type ="text" name="content">
+    </textarea>
+    <input type="submit" name="submit" value="Submit Comment">
+
+</form>
+
+    </body>
+</html>
